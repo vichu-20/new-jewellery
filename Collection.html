@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!--<link rel="icon" href="img/favicon.png" />
+         Place favicon.ico in the root directory -->
+		<!-- google-font -->
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"> 
+		<!-- all css here -->
+		<!-- bootstrap v3.3.6 css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- animate css -->
+        <link rel="stylesheet" href="css/animate.css">
+		<!-- jquery-ui.min css -->
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+		<!-- meanmenu css -->
+        <link rel="stylesheet" href="css/meanmenu.min.css">
+		<!-- nivo-slider css -->
+        <link rel="stylesheet" href="css/nivo-slider.css">		
+		<!-- owl.carousel css -->
+        <link rel="stylesheet" href="css/owl.carousel.css">
+		<!--linearicons css -->
+        <link rel="stylesheet" href="css/linearicons-icon-font.min.css">
+		<!-- font-awesome css -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- style css -->
+		<link rel="stylesheet" href="style.css">
+		<!-- responsive css -->
+        <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<style>
+    
+.product-img > a::before {
+    background: #333 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+	transition:all .4s;
+}
+.single-new-product:hover a:before {
+    opacity: 0.1;
+}
+.product-img{
+	position:relative;
+}
+.product-img > a{
+	position:relative;
+	display:block;
+	transition:all .4s;
+}
+.product-img .seceond_img{
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+	transition:all .4s;
+}
+.new-product-action {
+	bottom: 0;
+	position: absolute;
+	text-align: center;
+	width:100%;
+	z-index:4;
+	opacity:0;
+	transition:all.4s;
+	transform:scaleY(0);
+	transform-origin:center bottom 0;
+}
+.new-product-action a {
+	background: #e7cc98 none repeat scroll 0 0;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 16px;
+	margin: -1px;
+	padding: 8px 11px;
+}
+.new-product-action a span.cart_pad {
+    margin-right: 7px;
+}
+.new-product-action a:hover{
+	background:#9d297e;	
+}
+.single-new-product:hover .seceond_img{opacity:1;}
+.single-new-product:hover .new-product-action{opacity:1;z-index:11111; transform:scaleY(1)}
+.product-content{} 
+.product-content a h3{
+	color: #333333;
+	display: block;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	overflow: hidden;
+	text-transform: capitalize;	
+	margin: 10px 0;
+} 
+.product-content a h3:hover{
+	color:#9d297e;
+}
+.product-price-star i {
+	color: #9d297e;
+	font-size: 14px;
+}
+.product-content h4{
+	color: #333333;
+	font-size: 15px;
+	font-weight: 700;
+	margin-top: 7px;
+}
+span.new {
+	background: #ee5655 none repeat scroll 0 0;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 4px 8px;
+	position: absolute;
+	top: 12px;
+	z-index: 111;
+}
+.price h4 {
+    display: inline-block;
+}
+h3.del-price {
+    color: #777;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.porduct-option-left.floatleft > span {
+  color: #555;
+}
+.product-icon-wrapper {
+	position: absolute;
+	right: 22px;
+	top: 5px;
+}
+.product-icon {
+	opacity: 0;
+	position: relative;
+	right: -40px;
+	visibility: hidden;
+	transition:all.4s;
+}
+.product-icon li {
+    margin-bottom: 5px;
+}
+.product-icon a {
+	background: #ffffff none repeat scroll 0 0;
+	display: flex;
+	flex-direction: column;
+	height: 40px;
+	justify-content: center;
+	text-align: center;
+	transition: all 0.4s ease 0s;
+	width: 40px;
+	margin-bottom: 3px;
+	color:#9d297e;
+}
+.new-product-area.home-page-2 .single-new-product .product-icon ul li a:hover {
+	background: #ffffff none repeat scroll 0 0;
+	color: #e73b49;
+}
+.product-icon a:hover{
+	background:#9d297e;
+	color:#fff;
+}
+.single-new-product:hover .product-icon {
+	opacity: 1;
+	right: 9px;
+	top: 5px;
+	visibility: visible;
+	z-index: 11;
+} 
+
+</style>
+<body>
+    <header>
+        <div class="header-top-area ptb-10 hidden-xs header-top-area-4">
+            <div class="container">
+                <div class="row">
+                                    
+                    <div class="col-lg-9 col-md-8 col-sm-7 header-top-right-4">
+                    
+                        <div class="header-top-left">
+                            <ul>
+                            <li class="click_menu"><a href="#">My Account <i class="fa fa-angle-down"></i></a>
+                                    <ul class="click_menu_show">
+                                        <li><a href="user_accountpage.html">My Account</a></li>
+                                        <li><a href="wishlist.html">My Wish List</a></li>
+                                        <li><a href="customer-login.html">Sign In</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="register.html">Create an Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom-area home-page-2 ptb-10">
+            <div class="container">
+                <div class="row">
+
+                   
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="logo logo2">
+                            <a href="index.html"><img src="img/logo.jpg" alt="" /></a>
+                        </div>					
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                        <div class="header-bottom-right-4-inner">
+                            <a href="#"><span class="lnr lnr-heart"></span></a>
+                        </div>					
+                        <div class="header-bottom-right header-bottom-right-4">
+                            <div class="shop-cart shop-cart-4">									
+                                <a href="#"><span class="lnr lnr-cart"></span></a>
+                            </div>
+                            <div class="shop-cart-hover shop-cart-hover-4 fix">
+                                <ul>
+                                    <li>
+                                        <div class="cart-img">
+                                            <a href="#"><img src="img/product/1.jpg" alt="" /></a>
+                                        </div>
+                                        <div class="cart-content">
+                                            <h4><a href="#">1 x Faded...</a></h4>
+                                            <span><a href="#">S, Orange</a></span>
+                                            <span class="cart-price">Rs 16840</span>
+                                        </div>
+                                        <div class="cart-del">
+                                            <i class="fa fa-times-circle"></i>
+                                        </div>											
+                                    </li>
+                                    <li>
+                                        <div class="cart-img">
+                                            <a href="#"><img src="img/product/1.jpg" alt="" /></a>
+                                        </div>
+                                        <div class="cart-content">
+                                            <h4><a href="#">1 x Faded...</a></h4>
+                                            <span><a href="#">S, Orange</a></span>
+                                            <span class="cart-price">Rs 16840</span>
+                                        </div>
+                                        <div class="cart-del">
+                                            <i class="fa fa-times-circle"></i>
+                                        </div>											
+                                    </li>
+                                    <li class="total-price"><span> Total Rs 48000 </span></li>
+                                    <li class="checkout-bg">
+                                        <a href="checkout.html">checkout <i class="fa fa-angle-right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+    <!-- mainmenu-area-start -->
+    <div class="mainmenu-area home-page-2 mainmenu-area-4" id="main_h">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="mainmenu hidden-xs">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <div class="search_btn">
+                                        <button><span class="lnr lnr-magnifier"></span></button>
+                                        <div class="dropdown_search">
+                                            <form action="#">
+                                                <input type="text" placeholder="Search here ...">
+                                                <button><span class="lnr lnr-magnifier"></span></button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li><a href="index.html">Home</a>
+                                    
+                                </li>
+                                <li><a href="#">Categories</a>
+                                    <div class="megamenu">
+                                        <span>
+                                            <a href="#" class="megatitle">WOMEN</a>
+                                            <a href="Collection.html">Ear Rings</a>
+                                            <a href="Collection.html">Pendant</a>
+                                            <a href="Collection.html">Rings</a>
+                                            <a href="Collection.html">Chain</a>
+                                            <a href="Collection.html">Bangles</a>
+                                        </span>
+                                        <span>
+                                            <a href="#" class="megatitle">MEN</a>
+                                            <a href="Collection.html">Ring</a>
+                                            <a href="Collection.html">Pendant</a>
+                                            <a href="Collection.html">Bracelet</a>
+                                            <a href="Collection.html">Chain</a>
+                                            <a href="Collection.html">Gem Stone</a>
+                                        </span>
+                                        
+                                    </div>
+                                </li>
+                                <li><a href="#">Uncut Diamonds</a>
+                                    <div class="megamenu megamenu2 living-megamenu">
+                                        <span>
+											<a href="Collection.html">Ear Rings</a>
+                                            <a href="Collection.html">Pendant</a>
+                                            <a href="Collection.html">Ring</a>
+                                            <a href="Collection.html">Bracelet</a>
+                                            <a href="Collection.html">Necklace</a>
+                                        </span>
+                                        
+                                    </div>									
+                                </li>
+                                
+                                <li><a href="#">Explore</a>
+                                    <ul>
+                                        <li><a href="wishlist.html">my wishlist</a></li>
+                                        <li><a href="cart.html">My cart </a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="user_accountpage.html">My account</a></li>
+                                        <li><a href="contact.html">contact us</a></li>
+                                    </ul>									
+                                </li>
+
+
+                                <li><a href="contact.html">contact</a></li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-area hidden-sm hidden-md hidden-lg">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="menu-search-box scnd-fix">
+                <form action="#">
+                    <input type="text" placeholder="Search here..."/>
+                    <button><span class="lnr lnr-magnifier"></span></button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu">
+                            <ul>
+                                <li class="active"><a href="index.html">Home</a>
+                                    <ul>
+                                        <li><a href="index.html">home</a></li>
+                                        <li><a href="index-2.html">Cart</a></li>
+                                        <li><a href="index-4.html">My WishList</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="cart.html">Cart</a>
+                                    
+                                </li>
+                                
+                                
+                                <li><a href="#">pages</a>
+                                    <ul>
+                                        <li><a href="wishlist.html">my wishlist</a></li>
+                                        <li><a href="cart.html"> My cart </a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="user_accountpage.html">My account</a></li>
+                                        <li><a href="contact.html">contact us</a></li>
+                                    </ul>									
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mainmenu-area-end -->
+    
+    <ul class="product_list">
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="single-new-product">
+                <div class="product-img">
+                    <a href="product-details.html">
+                        <img src="img/product/1.jpg" class="first_img" alt="" />
+                        
+                    </a>
+                </div>
+                <div class="product-content text-center">
+                    <a href="product-details.html"><h3>Ear Rings</h3></a>
+                    <div class="product-price-star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class="price">
+                        <h4>Rs33000.00</h4> 
+                        <h3 class="del-price"><del>Rs45000.00</del></h3>
+                    </div>								
+                </div>
+                <div class="product-icon-wrapper">
+                    <div class="product-icon">
+                        <ul>
+                            <li><a href="#"><span class="lnr lnr-sync"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                            <li><a href="#"><span class="lnr lnr-cart"></span></a></li>
+                        </ul>								
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+    </ul>
+    
+    
+    </div>
+   
+
+
+    <!-- jquery latest version -->
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="js/jquery.meanmenu.js"></script>
+    <!-- jquery-ui js -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- wow js -->
+    <script src="js/wow.min.js"></script>
+    <!-- scrolly js -->
+    <!-- magnific-popup js -->
+    <script src="js/jquery.magnific-popup.min.js"></script>	
+    <!--  countdown js -->
+    <script src="js/jquery.countdown.min.js"></script>	
+    <!-- nivo.slider js -->
+    <script src="js/jquery.nivo.slider.js"></script>			
+    <!-- plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>
